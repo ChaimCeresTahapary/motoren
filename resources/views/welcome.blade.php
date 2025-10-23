@@ -30,6 +30,7 @@
                         >
                             Dashboard
                         </a>
+                        <a href="{{route('about',['name'=>'iets'])}}">About</a>
                     @else
                         <a
                             href="{{ route('login') }}"

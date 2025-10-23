@@ -15,3 +15,4 @@ class AppLayout extends Component
         return view('layouts.app');
     }
 }
+// is dit niet de css opmaak van voor als je het op telefoon scaling wilt
