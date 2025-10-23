@@ -6,9 +6,13 @@
 </head>
 <body>
     <nav>
-        <x-nav-link>Home</x-nav-link>
-        <x-nav-link>About</x-nav-link>
-        <x-nav-link>Contact</x-nav-link>
+        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            Dashboard
+        </x-nav-link>
+
+        <x-nav-link href="/">Home</x-nav-link>
+        <x-nav-link href="/about-us">About</x-nav-link>
+        <x-nav-link href="/contact-page">Contact</x-nav-link>
     </nav>
 
     {{ $slot }}
