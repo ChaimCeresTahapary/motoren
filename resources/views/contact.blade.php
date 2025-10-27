@@ -1,3 +1,6 @@
 <x-layout>
-    <h1>Hello from Contact Page.</h1>
+    <x-slot:heading>
+        Contact page
+    </x-slot:heading>
+    <p>hello contact </p>
 </x-layout>

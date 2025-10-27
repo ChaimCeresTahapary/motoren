@@ -10,4 +10,13 @@
 {{--    {{ $slot }}--}}
 {{--</a>--}}
 
-<a {{ $attributes }}>{{ $slot }}</a>
+{{--<a {{ $attributes }}>{{ $slot }}</a>--}}
+{{--<a class="{{ Request::is('/') ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">{{$slot}}</a>--}}
+
+<a
+    href="{{ $attributes['href'] }}"
+    class="rounded-md px-3 py-2 text-sm font-medium
+        {{ Request::is('/') && $attributes['href'] === '/' ? 'bg-gray-950/50 text-white' : '' }}
+        {{ Request::is(trim($attributes['href'], '/')) && $attributes['href'] !== '/' ? 'bg-gray-950/50 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white' }}">
+    {{ $slot }}
+</a>

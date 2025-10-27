@@ -1,17 +1,18 @@
 <?php
 
-// via co-pilot gezocht waar dat voorstaat
-// route:: get = met get vraag je de url op bijv
-// route::get('/about-us',function() { return 'met een beschrijving'; });
-// route:: post
-// route:: put
 
 use App\Http\Controllers\AboutController; // dit is samen met route about
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+//Route::get('/', [HomeController::class, 'index'])->name('home');
+//Route::get('/about-us', [AboutController::class, 'index'])->name('about');
+//Route::get('/contact-page', [ContactController::class, 'index'])->name('contact');
+
+
 Route::get('/welcome', function () {
     return view('welcome');
+
 });
 
 Route::get('/', function () {
@@ -19,12 +20,57 @@ Route::get('/', function () {
 });
 
 
-Route::get('/about-us', function () {
-    return view('about');
+Route::get('/brands', function () {
+    return view('brands', [
+        'jobs' => [
+            [
+                'id' => 1,
+                'title' => 'Honda',
+                'category' => 'sport'
+            ],
+            [
+                'id' => 2,
+                'title' => 'Yamaha',
+                'category' => 'sport'
+            ],
+            [
+                'id' => 3,
+                'title' => 'Kawasaki',
+                'category' => 'sport'
+            ]
+        ]
+    ]);
 });
 
 //Route::get('/about/{name}', [AboutController::class, 'index'])
 //    ->name('about');
+
+
+Route::get('/brands/{id}', function($id) {
+    $jobs =  [
+        [
+            'id' => 1,
+            'title' => 'Honda',
+            'category' => 'sport'
+        ],
+        [
+            'id' => 2,
+            'title' => 'Yamaha',
+            'category' => 'sport'
+        ],
+        [
+            'id' => 3,
+            'title' => 'Kawasaki',
+            'category' => 'sport'
+        ]
+    ];
+// is een short closure
+    $job = \Illuminate\Support\Arr::first($jobs, fn($job) => $job['id'] == $id);
+
+dd($job);
+
+return view('contact');
+});
 
 Route::get('/contact-page', function() {
     return view('contact');
