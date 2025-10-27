@@ -67,9 +67,7 @@ Route::get('/brands/{id}', function($id) {
 // is een short closure
     $job = \Illuminate\Support\Arr::first($jobs, fn($job) => $job['id'] == $id);
 
-dd($job);
-
-return view('contact');
+return view('job',['job' => $job]);
 });
 
 Route::get('/contact-page', function() {
