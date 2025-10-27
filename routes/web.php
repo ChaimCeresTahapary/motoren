@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\AboutController; // dit is samen met route about
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
 //Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -65,7 +66,7 @@ Route::get('/brands/{id}', function($id) {
         ]
     ];
 // is een short closure
-    $job = \Illuminate\Support\Arr::first($jobs, fn($job) => $job['id'] == $id);
+    $job = Arr::first($jobs, fn($job) => $job['id'] == $id);
 
 return view('job',['job' => $job]);
 });
