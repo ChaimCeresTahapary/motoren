@@ -6,7 +6,10 @@ on de navigation used the laracast tutorial
 27-10- started making a form to collect data had some problems
 with the before tutorials my Norton was blocking scripting why it took 
 so long to go further 
-did the day 7 tuto from laracast 
+did the day 7 tuto from laracast write data and it was hardcoded 
+
+28/10/25 database is made and isn't hardcoded on web.php like
+like what i had first. 
 
 
 

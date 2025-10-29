@@ -4,10 +4,10 @@
     </x-slot:heading>
 
     <ul>
-        @foreach ($jobs as $job)
+        @foreach ($brands as $brand)
             <li>
-                <a href="/brands/{{ $job['id'] }}" class="text-blue-500 hover:underline">
-                    <strong>{{ $job ['title'] }}: </strong> This motorcycle is a {{ $job ['category'] }} bike
+                <a href="/brands/{{ $brand['id'] }}" class="text-blue-500 hover:underline">
+                    <strong>{{ $brand ['title'] }}: </strong> This motorcycle is a {{ $brand['category_id'] }} bike
                 </a>
             </li>
         @endforeach

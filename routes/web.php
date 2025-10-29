@@ -3,18 +3,20 @@
 
 use App\Http\Controllers\AboutController; // dit is samen met route about
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use App\Models\Brand;
 
 //Route::get('/', [HomeController::class, 'index'])->name('home');
 //Route::get('/about-us', [AboutController::class, 'index'])->name('about');
 //Route::get('/contact-page', [ContactController::class, 'index'])->name('contact');
 
 
-Route::get('/welcome', function () {
-    return view('welcome');
+//Route::get('/welcome', function () {
+//    return view('welcome');
+//
+//});
 
-});
+
 
 Route::get('/', function () {
     return view('home');
@@ -23,23 +25,7 @@ Route::get('/', function () {
 
 Route::get('/brands', function () {
     return view('brands', [
-        'jobs' => [
-            [
-                'id' => 1,
-                'title' => 'Honda',
-                'category' => 'sport'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Yamaha',
-                'category' => 'sport'
-            ],
-            [
-                'id' => 3,
-                'title' => 'Kawasaki',
-                'category' => 'sport'
-            ]
-        ]
+        'brands' => Brand::all()
     ]);
 });
 
@@ -48,27 +34,10 @@ Route::get('/brands', function () {
 
 
 Route::get('/brands/{id}', function($id) {
-    $jobs =  [
-        [
-            'id' => 1,
-            'title' => 'Honda',
-            'category' => 'sport'
-        ],
-        [
-            'id' => 2,
-            'title' => 'Yamaha',
-            'category' => 'sport'
-        ],
-        [
-            'id' => 3,
-            'title' => 'Kawasaki',
-            'category' => 'sport'
-        ]
-    ];
 // is een short closure
-    $job = Arr::first($jobs, fn($job) => $job['id'] == $id);
+   $brand = Brand::find($id);
 
-return view('job',['job' => $job]);
+return view('brand',['brand' => $brand]);
 });
 
 Route::get('/contact-page', function() {
