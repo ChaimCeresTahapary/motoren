@@ -19,6 +19,7 @@ use App\Models\Brand;
 
 
 Route::get('/', function () {
+
     return view('home');
 });
 
