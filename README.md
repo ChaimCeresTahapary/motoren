@@ -18,7 +18,7 @@ App\Models\Brand::create(['title' =>' cfmoto','category_id' => 'sport']);
 and if ive want to delete all row ive do App\Models\Brand::query()->delete();
 or if you want to specify $brand = App\Models\Brand::find(4);
 $brand->delete();
-
+3-11- learned how eloquent works and been testing about 
 
 
 
